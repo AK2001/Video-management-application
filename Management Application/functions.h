@@ -12,8 +12,6 @@
 #include <iomanip>
 
 
-//Contains CASE 3 & 4 functions for main.
-
 
 using namespace std; 
 
@@ -95,15 +93,65 @@ using namespace std;
 		
 		return newVideo;
 	}
-
-
+	
 //------------------Case 3 functions for main------------------
+//This function deletes a specific video from memory
+
+	bool videoExists(VectorVideoData &videoList, string title){
+		int exists=0;
+		
+		for(int i=0;i<videoList.data.size();i++){
+			if(videoList.data[i].getTitle()==title){
+				exists++;		
+			}
+		}
+		
+		if (exists==0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	int unwantedVideoIndex(VectorVideoData &videoList){
+		string title;
+		int index=-1;
+		
+		cout<<"Enter the video title you want to remove. Else enter <0> to exit: ";
+		cin.ignore();
+		getline(cin,title);
+		
+		while(videoExists(videoList,title)&&title!="0"){
+			cout<<"The video doesn't exists. Try again or enter <0> to exit: ";
+			getline(cin,title);	
+		}
+		
+		if(title!="0"){
+			for(int i=0;i<videoList.data.size();i++){
+				if(videoList.data[i].getTitle()==title){
+					index=i;	
+					cout<<"Video: "
+					<<title
+					<<" was successfully erased from memory\n"
+					<<endl;	
+				}
+			}	
+		}else{
+			cout<<"You selected to exit."<<endl;
+		}
+		
+		
+		return index;			
+	}
+
+
+//------------------Case 4 functions for main------------------
 //This function lists the videos from memory
 
 void videoListShower(VectorVideoData &videoList){
 	int spacing =29;//NOTE: If u want to be able to input video title >25 characters add +1 to <spacing>. (also change in videodata.h)
 	cout << left << setw(spacing) << "Video Title";
-			cout << left << setw(spacing-14) << "| length (min)";
+			cout << left << setw(spacing-14) << "| Length (min)";
 			cout << left << setw(spacing-14) << "| Size (mb)";
 			cout << left << "| Date\n";
 			cout <<endl;
@@ -121,7 +169,7 @@ void videoListShower(VectorVideoData &videoList){
 }
 
 
-//------------------Case 4 functions for main------------------
+//------------------Case 5 functions for main------------------
 
 //The first SIX (6) are responsible for finding which video, by index, is the longest/shortest/largest/smaller as well as total duration and size
 //statsShower uses <iomanip> to output those stats clean and nice
