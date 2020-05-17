@@ -12,9 +12,11 @@ class Gui{
 			<<"\t"
 			<<"2. Add video"
 			<<"\t"
-			<<"3. List videos"
+			<<"3. Remove video"
 			<<"\t"
-			<<"4. View stats"
+			<<"4. List videos"
+			<<"\t"
+			<<"5. View stats"
 			<<"\t"
 			<<"0. Exit program"
 			<<"\t"
@@ -28,4 +30,3 @@ class Gui{
 	
 };
 #endif
-
