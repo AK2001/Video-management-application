@@ -1,4 +1,4 @@
-//CS19001
+
 #include <cmath>
 
 #include "videodata.h"
@@ -8,7 +8,7 @@
 
 
 int main() {
-cout<<"--------------------------------------CourseWork---------------------------------------\n"
+cout<<"----------------------------------------------CourseWork-----------------------------------------------\n"
 	<<endl;
 	
 //Note: don't force close 
@@ -22,13 +22,14 @@ VideoData a("First Video","11/5/2020",42.3,700,"|","|","|");//The first 3 defaul
 VideoData b("Second Video","9/9/2001",11.2,1070,"|","|","|");//NOTE: <"|"> is only for decoration purposes and can be changed
 VideoData c("Third Video","24/1/2019",6.5,1230,"|","|","|");
 
+
 videos.data.push_back(a);//Adding the first 3 video objects to the videos vector
 videos.data.push_back(b);
 videos.data.push_back(c);
 
 Gui gui;
 VideoData newVideo;//Used in Case 2
-
+int index;
 	while(1){
 		int choice=gui.menu();
 		
@@ -43,13 +44,20 @@ VideoData newVideo;//Used in Case 2
 				videos.data.push_back(read(newVideo));//Adds a new object to the vector videos (it saves objects in memory)
 			
 				break;
+			case 3: cout<<"You selected to remove a video"<<endl;
 				
-			case 3: cout<<"You selected to view the videos"<<endl;
+				index=unwantedVideoIndex(videos);
+				if(index>=0){
+					
+					videos.data.erase(videos.data.begin()+index);
+				}
+				break;	
+			case 4: cout<<"You selected to view the videos"<<endl;
 				
 				videoListShower(videos);
 					
 				break;
-			case 4: cout<<"You selected to view the stats"<<endl;
+			case 5: cout<<"You selected to view the stats"<<endl;
 
 				statsShower(videos);
 				
