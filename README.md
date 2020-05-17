@@ -1,5 +1,5 @@
 # Video-management-application
-### The following application was made as a Coursework Project. 
+### The following application was made as a Coursework Project on DEV C++. 
 The application is a video management application where the user can: 
    * Search a video by its title
    * Add a new video
