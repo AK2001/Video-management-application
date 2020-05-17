@@ -3,6 +3,7 @@
 The application is a video management application where the user can: 
    * Search a video by its title
    * Add a new video
+   * Remove a video
    * View all the videos save in memory 
    * View stats for all the videos
    
