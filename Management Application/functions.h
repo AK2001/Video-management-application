@@ -293,5 +293,5 @@ void statsShower(VectorVideoData &videosList){
 	cout << left << setw(titleWidth) << setfill(separator) << videosList.data[smallestVid].getSize();
 	cout <<"\n"<<  endl;
 		
-}
+};
 #endif
